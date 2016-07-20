@@ -2,3 +2,10 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+<ul>
+  <li>Location:<%= @user.location %></li>
+  <% if @user == current_user %>
+    <li>Email:<%= @user.email %></li>
+    <li><%= link_to "Edit Profile" , edit_user_path(@user) %></li>
+  <% end %>
+</ul>
