@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_params, only: [:show, :edit, :update]
+  before_action :set_params, only: [:show, :edit, :update, :followings, :followers]
   before_action :correct_user, only: [:edit, :update]
   
   def show
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user # ここを修正
+      redirect_to @user
     else
       render 'new'
     end
@@ -31,6 +31,18 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def followings
+    @title = 'Followings'
+    @users = @user.following_users
+    render 'show_follow'
+  end
+  
+  def followers
+    @title = 'Followers'
+    @users = @user.follower_users
+    render 'show_follow'
   end
 
   private
