@@ -1,3 +1,1 @@
-<ul style="list-style:none;">
-  <li><%= link_to gravatar_for(user, size: 20), user %><%= link_to user.name, user %></li>
-</ul>
+<li><span class="gravatar"><%= link_to gravatar_for(user, size: 30), user %></span><span class="user"><%= link_to user.name, user %></span></li>
