@@ -190,9 +190,17 @@ span.picture {
 
 .follow {
   list-style: none;
-  padding: 0;
+  padding: 5;
   li {
-    padding: 10px 0;
+
+    padding: 20px;
+    background: #fff;
+    border: 1px #ccc solid;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 #ddd;
+    -moz-box-shadow: 0 2px 3px 0 #ddd;
+    -webkit-box-shadow: 0 2px 3px 0 #ddd;
+    
   }
   .user {
     margin-top: 5em;
@@ -201,6 +209,7 @@ span.picture {
   .gravatar {
     float: left;
     margin-right: 10px;
-    margin-top: 0px;
+    margin-top: -6px;
+    
   }
 }

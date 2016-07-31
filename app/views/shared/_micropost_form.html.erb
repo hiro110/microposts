@@ -1,5 +1,25 @@
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  <span class="text_count">0</span>
+  <script type="text/javascript">
+    $(function(){
+        var countMax = 140;
+        $('textarea').bind('keydown keyup keypress change',function(){
+            var thisValueLength = $(this).val().length;
+            var countDown = (countMax)-(thisValueLength);
+            $('.text_count').html(countDown);
+     
+            if(countDown < 0){
+                $('.text_count').css({color:'#ff0000',fontWeight:'bold'});
+            } else {
+                $('.text_count').css({color:'#000000',fontWeight:'normal'});
+            }
+        });
+        $(window).load(function(){
+            $('.text_count').html(countMax);
+        });
+    });
+  </script>
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
